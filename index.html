@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Keyboard</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class='container'>
+  <div id='settings_box' class='animation'> 
+    <header>
+      <span> SETTINGS </span>
+      <span id='close_settings_btn'>&times;</span>
+    </header>
+    
+    <div class='settings_grid sound_row'>
+      <div>
+        <span> Sound </span>
+        <input type='checkbox' id='check_sound'>
+      </div>
+      <select id='keypad_sound_options'> 
+        <option> Select Keypad Sound </option>
+        <option id='phone_beep'> Phone Beep </option>
+        <option id='game_sound'> Game Sound </option>
+        <option id='click_1'> Click 1 </option>
+        <option id='click_2'> Click 2 </option>
+        <option id='click_3'> Click 3 </option>
+        <option id='click_4'> Click 4 </option>
+        <option id='click_5'> Click 5 </option>
+        <option id='click_6'> Click 6 </option>
+        <option id='click_7'> Click 7 </option>
+        <option id='click_8'> Click 8 </option>
+        <option id='click_9'> Click 9 </option>
+        <option id='gear_screw'> Gear Screw </option>
+        <option id='click_10'> Click 10 </option>
+      </select>
+    </div>
+    <div class='settings_grid'>
+      <span> Keyboard Height: </span>
+      <select id='keyboard_height_options'> 
+        <option> Select Keyboard Height </option>
+        <option id='very_small'> Very Small </option>
+        <option id='small'> Small </option>
+        <option id='medium'> Medium </option>
+        <option id='high'> High </option>
+        <option id='very_high'> Very High </option>
+      </select>
+    </div>
+    <div class='settings_grid'>
+      <span> Background: </span>
+      <input type='text' id='keyboard_background' placeholder='#111' readonly>
+      <div class='background_color_grid'>
+        <span class="available_background_color" id='#111111'></span> <span class="available_background_color" id='#430000'></span> <span class="available_background_color" id='#002d00'></span> <span class="available_background_color" id='#0000bc'></span>
+        <span class="available_background_color" id='#372887'></span> <span class="available_background_color" id='#c178fb'></span> <span class="available_background_color" id='#a0ffe8'></span> <span class="available_background_color" id='Azure'></span>
+        <span class="available_background_color" id='Khaki'></span> <span class="available_background_color" id='Gold'></span> <span class="available_background_color" id='LightGreen'></span> <span class="available_background_color" id='HoneyDew'></span>
+        <span class="available_background_color" id='Turquoise'></span> <span class="available_background_color" id='Fuchsia'></span> <span class="available_background_color" id='Aqua'></span> <span class="available_background_color" id='LightBlue'></span>
+      </div> 
+    </div>
+    <div class='settings_grid'> 
+      <span> Font Weight: </span>
+      <select id='font_weight_options'> 
+        <option> Select Font Weight </option>
+        <option id='100'> Very Light </option>
+        <option id='300'> Light </option>
+        <option id='500'> Normal </option>
+        <option id='700'> Bold </option>
+        <option id='1000'> Very Bold</option>
+      </select>
+    </div>
+    <div class='settings_grid'>
+      <span> Font Family: </span>
+      <select id='font_family_options'> 
+        <option> Select Font Family </option>
+        <option id='Times New Roman'> Times New Roman </option>
+        <option id='Arial'> Arial </option>
+        <option id='Verdana'> Verdana </option>
+        <option id='monospace'> Monospace </option>
+        <option id='cursive'> Cursive </option>
+        <option id='Courier Sans MS'> Courier Sans MS</option>
+        <option id='serif'> Serif </option>
+        <option id='sans serif'> Sans Serif </option>
+      </select>
+    </div>
+    
+    <button id='save_settings_btn'> <i class='fa fa-save'></i> Save </button>
+  </div>
+  
+  <div id="output_container"> </div>
+  <div id='main_board_container'>
+    <div class='keyboard_settings_and_current_input' > 
+      <span id='currently_typed_text'>  </span>
+      <span id='open_settings_btn'> <i class='fa fa-gear fa-2x'> </i> </span>
+    </div>
+    <div class="key_container">
+      <div class='emoji_btn_row' id="emoji_btn_row"> 
+        <span class="emoji_btn">😃</span>  <span class="emoji_btn">😃</span>  <span class="emoji_btn">🤓</span> <span class="emoji_btn">😎</span>
+        <span class="emoji_btn">😋</span>  <span class="emoji_btn">😜</span>  <span class="emoji_btn">😂</span> <span class="emoji_btn">🤣</span> 
+        <span class="emoji_btn">👆</span>  <span class="emoji_btn">🤗</span>  <span class="emoji_btn">🤭</span> <span class="emoji_btn">😍</span>            
+        <span class="emoji_btn">👇</span>  <span class="emoji_btn">🌝</span>  <span class="emoji_btn">🤫</span> <span class="emoji_btn">🤔</span>
+        <span class="emoji_btn">👀</span>  <span class="emoji_btn">🙏</span>  <span class="emoji_btn">😰</span> <span class="emoji_btn">😓</span> 
+        <span class="emoji_btn">💖</span>  <span class="emoji_btn">💥</span>  <span class="emoji_btn">😡</span> <span class="emoji_btn">😠</span>          
+        <span class="emoji_btn">💃</span>  <span class="emoji_btn">😁</span>  <span class="emoji_btn">😙</span> <span class="emoji_btn">😩</span>
+        <span class="emoji_btn">🌲</span>  <span class="emoji_btn">🙃</span>  <span class="emoji_btn">😭</span> <span class="emoji_btn">🏃</span> 
+        <span class="emoji_btn">🌤️</span>  <span class="emoji_btn">😑</span>  <span class="emoji_btn">😊</span> <span class="emoji_btn">🚶</span>            
+        <span class="emoji_btn">🤶</span>  <span class="emoji_btn">😶</span>  <span class="emoji_btn">😤</span> <span class="emoji_btn">🤸</span>
+        <span class="emoji_btn">🦁</span>  <span class="emoji_btn">😌</span>  <span class="emoji_btn">🙄</span> <span class="emoji_btn">🙆</span> 
+        <span class="emoji_btn">🎅</span>  <span class="emoji_btn">😊</span>  <span class="emoji_btn">🌚</span> <span class="emoji_btn">🙇</span>                                      
+      </div> 
+      <div class='special_char_row' id="special_char_row"> 
+        <span class="special_char">!</span>  <span class="special_char">@</span>  <span class="special_char">#</span> <span class="special_char">$</span>
+        <span class="special_char">%</span>  <span class="special_char">+</span>  <span class="special_char">-</span> <span class="special_char">=</span> 
+        <span class="special_char">{</span>  <span class="special_char">}</span>  <span class="special_char">*</span> <span class="special_char">/</span>            
+        <span class="special_char">&amp;</span>  <span class="special_char">&#60;</span>  <span class="special_char">&#62;</span> <span class="special_char">.</span>            
+        <span class="special_char">(</span>  <span class="special_char">)</span>  <span class="special_char">[</span> <span class="special_char">]</span>
+        <span class="special_char">`</span>  <span class="special_char">_</span>  <span class="special_char">~</span> <span class="special_char">^</span> 
+        <span class="special_char">'</span>  <span class="special_char">,</span>  <span class="special_char">|</span> <span class="special_char">\</span>                                              
+      </div> 
+      <div class='input_row number_row'> 
+         <span class="number_key">1</span>  <span class="number_key">2</span>  <span class="number_key">3</span> <span class="number_key">4</span>
+        <span class="number_key">5</span>  <span class="number_key">6</span>  <span class="number_key">7</span> <span class="number_key">8</span>  
+        <span class="number_key">9</span>  <span class="number_key">0</span>  <span class="special_key" id="backspace_key"><i class="material-icons">backspace</i></span>                                                  
+      </div> 
+      <div class='input_row first_row'> 
+         <span class="alphabet_key">q</span>  <span class="alphabet_key">w</span>  <span class="alphabet_key">e</span> <span class="alphabet_key">r</span>
+        <span class="alphabet_key">t</span>  <span class="alphabet_key">y</span>  <span class="alphabet_key">u</span> <span class="alphabet_key">i</span> 
+        <span class="alphabet_key">o</span>  <span class="alphabet_key">p</span>  <span class="special_char">"</span>                                                  
+      </div>
+      <div class='input_row second_row'> 
+        <span class="alphabet_key">a</span>  <span class="alphabet_key">s</span>  <span class="alphabet_key">d</span> <span class="alphabet_key">f</span>
+        <span class="alphabet_key">g</span>  <span class="alphabet_key">h</span>  <span class="alphabet_key">j</span> <span class="alphabet_key">k</span> 
+        <span class="alphabet_key">l</span>  <span class="special_key" id="enter_key"><i class="fa fa-level-down"></i></span>                                                  
+      </div> 
+      <div class='input_row third_row'> 
+        <span class="special_key" id="shift_key"><i class='fa fa-long-arrow-up'></i></span>  <span class="alphabet_key">z</span>  <span class="alphabet_key">x</span>
+        <span class="alphabet_key" id="ctrl_copy">c</span>  <span class="alphabet_key">v</span>  <span class="alphabet_key">b</span>  <span class="alphabet_key">n</span>  
+        <span class="alphabet_key">m</span>  <span class="special_char">:</span>  <span class="special_char">?</span>                                                     
+      </div>
+      <div class='input_row control_row'> 
+         <span class="special_char">\</span>  <span class="special_key" id="open_emoji_btn">🌝</span>   <span class="special_char">,</span> 
+         <span class='special_key' id="spacebar_key"> ____ </span>   <span class="special_char">.</span>   <span class="special_key" id="open_special_char_btn">#12</span> 
+         <span class="special_char">;</span> 
+      </div> 	
+    </div>
+   </div>
+  </div>
+
+  <!-- Audio tags for sound effect --> 
+  <audio class="audio_sound" id='sound_1' src="$home/$panel/Audios/sound_1.mp3"> </audio>
+  <audio class="audio_sound" id='sound_2' src="$home/$panel/Audios/sound_2.mp3"> </audio>
+  <audio class="audio_sound" id='sound_3' src="$home/$panel/Audios/sound_3.mp3"> </audio>
+  <audio class="audio_sound" id='sound_4' src="$home/$panel/Audios/sound_4.mp3"> </audio>
+  <audio class="audio_sound" id='sound_5' src="$home/$panel/Audios/sound_5.mp3"> </audio>
+  <audio class="audio_sound" id='sound_6' src="$home/$panel/Audios/sound_6.mp3"> </audio>
+  <audio class="audio_sound" id='sound_7' src="$home/$panel/Audios/sound_7.mp3"> </audio>
+  <audio class="audio_sound" id='sound_8' src="$home/$panel/Audios/sound_8.mp3"> </audio>
+  <audio class="audio_sound" id='sound_9' src="$home/$panel/Audios/sound_9.mp3"> </audio>
+  <audio class="audio_sound" id='sound_10' src="$home/$panel/Audios/sound_10.mp3"> </audio>
+  <audio class="audio_sound" id='sound_11' src="$home/$panel/Audios/sound_11.mp3"> </audio>
+  <audio class="audio_sound" id='sound_12' src="$home/$panel/Audios/sound_12.mp3"> </audio>
+  <audio class="audio_sound" id='sound_13' src="$home/$panel/Audios/sound_13.mp3"> </audio> 
+
+  
+  
+  <script src="script.js"></script>
+
+</body>
+</html>
